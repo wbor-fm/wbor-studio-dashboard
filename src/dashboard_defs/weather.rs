@@ -103,7 +103,7 @@ async fn build_weather_request_urls(maybe_api_key: &str) -> GenericResult<[Cow<'
 
 	let location_info: LocationInfo = request::get_as!("https://ipinfo.io/json")?;
 
-	// Here's the code behind the proxy: `https://github.com/WBOR-91-1-FM/wbor-weather-proxy`
+	// Here's the code behind the proxy: `https://github.com/wbor-fm/wbor-weather-proxy`
 	const PROXY_REQUEST_URL: &str = "https://api-2.wbor.org/weather";
 
 	let fallback_request_url = request::build_url("https://api.tomorrow.io/v4/timelines",
