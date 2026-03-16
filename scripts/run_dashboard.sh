@@ -15,7 +15,7 @@ send_discord_webhook() {
 
 NUM_PROJECT_LOG_LINES=20
 SLEEP_AMOUNT_SECS_UPON_PANIC=50
-PROJECT_DIR="/Users/wborguest/wbor-studio-dashboard" # Full path to project dir
+PROJECT_DIR="/home/wbordashboard/wbor-studio-dashboard" # Full path to project dir
 
 cd "$PROJECT_DIR" || exit # Navigate to the project dir
 
@@ -30,7 +30,13 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-########## Third, if the dashboard fails at any point, try a relaunch
+########## Third, wait for the network to be available
+
+while ! ping -c 1 google.com &> /dev/null; do
+    sleep 2
+done
+
+########## Fourth, if the dashboard fails at any point, try a relaunch
 
 print_to_log() {
 	echo -e "$1" >> "$PROJECT_DIR/project.log"
