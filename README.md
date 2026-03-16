@@ -27,7 +27,7 @@ brew install rust sdl2 sdl2_image sdl2_ttf sdl2_gfx
 - `dnf` (Fedora):
 
 ```sh
-sudo dnf install rust cargo SDL2-devel SDL2_image-devel SDL2_ttf-devel SDL2_gfx-devel
+sudo dnf install rust cargo SDL2-devel SDL2_image-devel SDL2_ttf-devel SDL2_gfx-devel openssl-devel
 ```
 
 - `apt-get` (Raspbian, Debian, and many others):
